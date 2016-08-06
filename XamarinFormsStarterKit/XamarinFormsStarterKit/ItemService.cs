@@ -16,6 +16,7 @@ namespace XamarinFormsStarterKit
     {
         public static string FeedUri = "https://channel9.msdn.com/Blogs/MVP-VisualStudio-Dev/RSS";
 
+        // Query the RSS feed with LINQ and return an IEnumerable of Item
         private async Task<IEnumerable<Item>> QueryRssAsync(CancellationToken token)
         {
             try
@@ -61,10 +62,15 @@ namespace XamarinFormsStarterKit
         public ItemService()
         {
             this.token = new CancellationToken();
+
+            // Invoke the platform-specific implementation of the interface via dep injection
             database = DependencyService.Get<IDatabaseConnection>().DbConnection();
+
+            // Create a table if not exists
             database.CreateTable<Item>();
         }
 
+        // Query the table in the database
         private IEnumerable<Item> OfflineQuery()
         {
             lock (collisionLock)
@@ -82,6 +88,7 @@ namespace XamarinFormsStarterKit
                 try
                 {
                     this.Items = new ObservableCollection<Item>(await QueryRssAsync(token));
+                    // Drop and recreate
                     database.DropTable<Item>();
                     database.CreateTable<Item>();
                     SaveAllItems();
@@ -93,6 +100,7 @@ namespace XamarinFormsStarterKit
                 }
             }
 
+            // If already any items in the table, no need of loading from Internet
             if (database.Table<Item>().Any())
             {
                 this.Items =
@@ -101,6 +109,7 @@ namespace XamarinFormsStarterKit
             }
             else
             {
+                // If not connected, raise an error
                 if (!App.IsConnected) throw new InvalidOperationException();
                 this.Items = new ObservableCollection<Item>(await QueryRssAsync(token));
                 SaveAllItems();
@@ -113,6 +122,7 @@ namespace XamarinFormsStarterKit
         {
             lock (collisionLock)
             {
+                // In the database, save or update each item in the collection
                 foreach (var feedItem in this.Items)
                 {
                     if (feedItem.Id != 0)

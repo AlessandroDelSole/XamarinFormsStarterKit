@@ -8,6 +8,8 @@ using SQLite;
 
 namespace XamarinFormsStarterKit
 {
+    // Decorate class and members with SQLite attributes for table definition and data validation
+
     [Table("FeedItems")]
     public class Item: INotifyPropertyChanged
     {

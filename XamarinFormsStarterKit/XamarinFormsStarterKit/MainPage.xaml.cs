@@ -27,6 +27,7 @@ namespace XamarinFormsStarterKit
             try
             {
                 await this.itemsService.PopulateDataAsync(false);
+                // Data-binding:
                 this.BindingContext = this.itemsService.Items;
             }
             catch(InvalidOperationException ex)

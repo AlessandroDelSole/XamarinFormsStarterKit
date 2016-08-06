@@ -24,10 +24,14 @@ namespace XamarinFormsStarterKit
 
             if (!App.IsConnected)
             {
+                // Show a modal message
                 await DisplayAlert("Error", "Check your network connection", "OK");
+
+                // Navigate back
                 await Navigation.PopAsync();
             }
 
+            // Assign WebView.Source with the html content to show
             this.WebView1.Source = new Uri(link, UriKind.Absolute);
         }
     }
