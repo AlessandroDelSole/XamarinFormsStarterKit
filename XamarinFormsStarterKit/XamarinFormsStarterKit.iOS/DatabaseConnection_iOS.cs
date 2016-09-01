@@ -2,10 +2,12 @@
 using SQLite;
 using System;
 using System.IO;
+using XamarinFormsStarterKit;
+
 [assembly: Xamarin.Forms.Dependency(typeof(DatabaseConnection_iOS))]
 namespace LocalDataAccess.iOS
 {
-    public class DatabaseConnection_iOS
+    public class DatabaseConnection_iOS: IDatabaseConnection
     {
         public SQLiteConnection DbConnection()
         {
