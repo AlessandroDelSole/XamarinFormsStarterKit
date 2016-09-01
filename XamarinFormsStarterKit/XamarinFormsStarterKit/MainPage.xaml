@@ -9,7 +9,10 @@
   
   <StackLayout>
     <ActivityIndicator x:Name="BusyIndicator" IsRunning="False" IsVisible="False"/>
-    <ListView x:Name="RssView" ItemsSource="{Binding}" ItemTapped="RssView_ItemTapped" ListView.RowHeight="150">
+    <ListView x:Name="RssView" ItemsSource="{Binding}" IsPullToRefreshEnabled="True"
+              Refreshing="RssView_Refreshing"
+              IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+              ItemTapped="RssView_ItemTapped" ListView.RowHeight="150">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>

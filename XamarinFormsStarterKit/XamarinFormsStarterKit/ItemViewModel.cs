@@ -2,8 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Net.Http;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -12,9 +14,23 @@ using Xamarin.Forms;
 
 namespace XamarinFormsStarterKit
 {
-    public class ItemService
+    public class ItemViewModel: INotifyPropertyChanged
     {
         public static string FeedUri = "https://channel9.msdn.com/Blogs/MVP-VisualStudio-Dev/RSS";
+
+        private bool isBusy;
+        public bool IsBusy
+        {
+            get
+            {
+                return isBusy;
+            }
+            set
+            {
+                isBusy = value;
+                OnPropertyChanged();
+            }
+        }
 
         // Query the RSS feed with LINQ and return an IEnumerable of Item
         private async Task<IEnumerable<Item>> QueryRssAsync(CancellationToken token)
@@ -59,7 +75,7 @@ namespace XamarinFormsStarterKit
 
         public ObservableCollection<Item> Items { get; set; }
 
-        public ItemService()
+        public ItemViewModel()
         {
             this.token = new CancellationToken();
 
@@ -81,12 +97,20 @@ namespace XamarinFormsStarterKit
 
         private CancellationToken token;
 
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName]string name = "") =>
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+
         public async Task PopulateDataAsync(bool refresh)
         {
-            if(refresh==true && App.IsConnected)
+            if (IsBusy)
+                return;
+
+            if (refresh==true && App.IsConnected)
             {
                 try
                 {
+                    IsBusy = true;
                     this.Items = new ObservableCollection<Item>(await QueryRssAsync(token));
                     // Drop and recreate
                     database.DropTable<Item>();
@@ -97,6 +121,10 @@ namespace XamarinFormsStarterKit
                 catch
                 {
                     return;
+                }
+                finally
+                {
+                    IsBusy = false;
                 }
             }
 

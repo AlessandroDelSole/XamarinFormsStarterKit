@@ -11,12 +11,12 @@ namespace XamarinFormsStarterKit
 {
     public partial class MainPage : ContentPage
     {
-        private ItemService itemsService;
+        private ItemViewModel itemsService;
 
         public MainPage()
         {
             InitializeComponent();
-            this.itemsService = new ItemService();
+            this.itemsService = new ItemViewModel();
         }
 
         protected async override void OnAppearing()
@@ -47,7 +47,7 @@ namespace XamarinFormsStarterKit
             }
         }
 
-        private async void RefreshButton_Clicked(object sender, EventArgs e)
+        private async Task LoadDataAsync()
         {
             this.BusyIndicator.IsVisible = true;
             this.BusyIndicator.IsRunning = true;
@@ -71,6 +71,16 @@ namespace XamarinFormsStarterKit
                 this.BusyIndicator.IsVisible = false;
                 this.BusyIndicator.IsRunning = false;
             }
+        }
+
+        private async void RssView_Refreshing(object sender, EventArgs e)
+        {
+            await LoadDataAsync();
+        }
+
+        private async void RefreshButton_Clicked(object sender, EventArgs e)
+        {
+            await LoadDataAsync();
         }
 
         private async void RssView_ItemTapped(object sender, ItemTappedEventArgs e)

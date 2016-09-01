@@ -40,7 +40,7 @@
     </Compile>
     <Compile Include="IDatabaseConnection.cs" />
     <Compile Include="Item.cs" />
-    <Compile Include="ItemService.cs" />
+    <Compile Include="ItemViewModel.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
