@@ -1,6 +1,11 @@
 # Xamarin.Forms Starter Kit
 
-This is a Xamarin.Forms solution written in C#, that targets Android, iOS, Universal Windows Platform and is intended to be a starting point for beginners using Xamarin.Fomrs.
+![](https://img.shields.io/badge/.NET%20Standard-v2.0-blue.svg)   ![](https://img.shields.io/badge/Xamarin.Forms-v2.5-orange.svg)
+
+
+## The Starter Kit is now based on .NET Standard 2.0 and Xamarin.Forms 2.5 as per today's release (01/26/2018)
+
+This is a Xamarin.Forms solution written in C#, that targets Android, iOS, Universal Windows Platform and is intended to be a starting point for beginners using Xamarin.Forms.
 
 The sample app demonstrates:
 
@@ -18,5 +23,9 @@ The sample app demonstrates:
 6. how to show modal messages
 
 7. how to implement a navigation bar with buttons
+
+8. how to share contents with the Share plugin
+
+9. how to raise toast notifications
 
 This can be improved in a number of ways, please fork and submit pull requests.
