@@ -1,12 +1,14 @@
 ﻿{
   "dependencies": {
-    "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
+    "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.6",
+    "Plugin.Share": "7.1.1",
     "sqlite-net-pcl": "1.1.2",
-    "Xam.Plugin.Connectivity": "2.2.12",
-    "Xamarin.Forms": "2.3.1.114"
+    "Toasts.Forms.Plugin": "3.3.1",
+    "Xam.Plugin.Connectivity": "3.0.3",
+    "Xamarin.Forms": "2.5.0.122203"
   },
   "frameworks": {
-    "uap10.0": {}
+    "uap10.0.16299": {}
   },
   "runtimes": {
     "win10-arm": {},

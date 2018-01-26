@@ -11,8 +11,8 @@
     <AssemblyName>XamarinFormsStarterKit.UWP</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
+    <TargetPlatformVersion>10.0.16299.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -128,8 +128,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\XamarinFormsStarterKit\XamarinFormsStarterKit\XamarinFormsStarterKit.csproj">
-      <Project>{2ae49240-f391-4a1d-9fb9-2edca4c8b707}</Project>
+    <ProjectReference Include="..\XFStarterKit\XamarinFormsStarterKit.csproj">
+      <Project>{96d7736a-1ac4-4c8b-9fe1-c6eb334b16d8}</Project>
       <Name>XamarinFormsStarterKit</Name>
     </ProjectReference>
   </ItemGroup>
