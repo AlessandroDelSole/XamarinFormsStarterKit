@@ -1,4 +1,4 @@
-﻿using Plugin.Connectivity;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +15,7 @@ namespace XamarinFormsStarterKit
         public App()
         {
             InitializeComponent();
-            CrossConnectivity.Current.ConnectivityChanged += (sender, e) => { IsConnected = e.IsConnected; };
+            Xamarin.Essentials.Connectivity.ConnectivityChanged += (sender, e) => { IsConnected = GetIsConnected(); };
 
             MainPage = new NavigationPage(new MainPage());
         }
@@ -25,7 +25,7 @@ namespace XamarinFormsStarterKit
         protected override void OnStart()
         {
             // Handle when your app starts
-            App.IsConnected = CrossConnectivity.Current.IsConnected;
+            App.IsConnected = GetIsConnected();
         }
 
         protected override void OnSleep()
@@ -36,7 +36,12 @@ namespace XamarinFormsStarterKit
         protected override void OnResume()
         {
             // Handle when your app resumes
-            App.IsConnected = CrossConnectivity.Current.IsConnected;
+            App.IsConnected = GetIsConnected();
+        }
+
+        private bool GetIsConnected()
+        {
+            return Xamarin.Essentials.Connectivity.NetworkAccess == Xamarin.Essentials.NetworkAccess.Internet;
         }
     }
 }

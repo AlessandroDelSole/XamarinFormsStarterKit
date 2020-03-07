@@ -1,4 +1,4 @@
-﻿using Plugin.Connectivity;
+﻿
 using Plugin.Toasts;
 using System;
 using System.Collections.Generic;

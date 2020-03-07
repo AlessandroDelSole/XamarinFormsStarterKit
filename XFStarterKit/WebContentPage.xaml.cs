@@ -1,11 +1,10 @@
-﻿using Plugin.Share;
-using Plugin.Share.Abstractions;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace XamarinFormsStarterKit
@@ -37,13 +36,13 @@ namespace XamarinFormsStarterKit
             this.WebView1.Source = new Uri(item.Link, UriKind.Absolute);
         }
 
-        private void ShareButton_Clicked(object sender, EventArgs e)
+        private async void ShareButton_Clicked(object sender, EventArgs e)
         {
-            ShareMessage msg = new ShareMessage();
-            msg.Title = this.item.Title;
-            msg.Url = this.item.Link;
-
-            CrossShare.Current.Share(msg);
+            await Share.RequestAsync(new ShareTextRequest
+            {
+                Uri = item.Link,
+                Title = item.Title
+            });
         }
     }
 }
