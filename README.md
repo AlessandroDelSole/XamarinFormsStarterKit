@@ -3,9 +3,9 @@
 ![](https://img.shields.io/badge/.NET%20Standard-v2.0-blue.svg)   ![](https://img.shields.io/badge/Xamarin.Forms-v2.5-orange.svg)
 
 
-## The Starter Kit is now based on .NET Standard 2.0 and Xamarin.Forms 2.5 as per today's release (01/26/2018)
+## The Starter Kit is now based on .NET Standard 2.0 and Xamarin.Forms 4.5 (latest update 03/08/2020)
 
-This is a Xamarin.Forms solution written in C#, that targets Android, iOS, Universal Windows Platform and is intended to be a starting point for beginners using Xamarin.Forms.
+This is a Xamarin.Forms solution written in C#, that targets Android and iOS (UWP is no longer supported) and is intended to be a starting point for beginners using Xamarin.Forms.
 
 The sample app demonstrates:
 
