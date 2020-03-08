@@ -1,6 +1,6 @@
 # Xamarin.Forms Starter Kit
 
-![](https://img.shields.io/badge/.NET%20Standard-v2.0-blue.svg)   ![](https://img.shields.io/badge/Xamarin.Forms-v2.5-orange.svg)
+![](https://img.shields.io/badge/.NET%20Standard-v2.0-blue.svg)   ![](https://img.shields.io/badge/Xamarin.Forms-v4.5-orange)
 
 
 ## The Starter Kit is now based on .NET Standard 2.0 and Xamarin.Forms 4.5 (latest update 03/08/2020)
