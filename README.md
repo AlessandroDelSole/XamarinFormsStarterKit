@@ -1,6 +1,6 @@
 # Xamarin.Forms Starter Kit
 
-![](https://img.shields.io/badge/.NET%20Standard-v2.0-blue.svg)   ![](https://img.shields.io/badge/Xamarin.Forms-v4.5-orange)
+![](https://img.shields.io/badge/.NET%20Standard-v2.0-blue.svg)   ![](https://img.shields.io/badge/Xamarin.Forms-v4.5-orange)   ![](https://img.shields.io/badge/Xamarin.Essentials-1.5.1-blueviolet)
 
 
 ## The Starter Kit is now based on .NET Standard 2.0 and Xamarin.Forms 4.5 (latest update 03/08/2020)
@@ -18,7 +18,7 @@ The sample app demonstrates:
 
 4. basic navigation
 
-5. connectivity check with the Connectivity Plugin
+5. connectivity check with Xamarin.Essentials
 
 6. how to show modal messages
 
